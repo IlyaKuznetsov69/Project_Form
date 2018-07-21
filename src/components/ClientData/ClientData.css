@@ -1,0 +1,77 @@
+.form {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  margin: 30px auto;
+  width: 80%;
+  padding: 30px;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 5px;
+  background-clip: padding-box;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 13px 5px rgba(0, 0, 0, 0.5);
+}
+
+.formEnter, .formAppear {
+  opacity: 0.01;
+  transform: translateX(-100%);
+}
+
+.formEnterActive, .formAppearActive {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.8s ease-in-out;
+}
+
+.header {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.notation {
+  display: block;
+  padding-top: 15px;
+  color: rgb(172, 0, 0);
+}
+
+.button {
+  font-weight: bold;
+  display: block;
+  position: relative;
+  top: 0;
+  width: 40%;
+  height: 40px;
+  margin-right: 10%;
+  border: 1px solid #253737;
+  background: #416b68;
+  background: linear-gradient(to bottom, #6da5a3, #416b68);
+  padding: 5px 21px;
+  border-radius: 6px;
+  box-shadow: rgba(255,255,255,0.1) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+  text-shadow: #333333 0 1px 0;
+  color: #e1e1e1;
+  cursor: pointer;
+}
+
+.button:hover {
+  border: 1px solid #253737;
+  text-shadow: #333333 0 1px 0;
+  background: #416b68;
+  background: linear-gradient(to bottom, #77b2b0, #416b68);
+  color: #fff;
+}
+
+.button:active {
+  text-shadow: #333333 0 -1px 0;
+  border: 1px solid #333333;
+  background: #ffCC00;
+  background: linear-gradient(to bottom, #ffcc00, #ff6600);
+  color: #fff;
+  box-shadow: rgba(255,255,255,0) 0 1px 0, inset rgba(255,255,255,0.7) 0 1px 0;
+  outline: none;
+}
+
+.buttonBox {
+  display: flex;
+}

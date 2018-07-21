@@ -1,0 +1,46 @@
+.inputLabel {
+  display: block;
+  position: relative;
+  height: 60px;
+}
+
+.inputField {
+  display: inline-block;
+  width: 82%;
+  height: 25px;
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 4px;
+  background-clip: padding-box; 
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;    
+  color:#fff;
+  background: rgba(255, 255, 255, 0.4); 
+  padding-left: 7%;
+  padding-right: 7%;
+  margin-bottom:20px;
+}
+
+.inputField:-webkit-autofill {
+  box-shadow: inset 0 0 0 50px rgb(127,173,192) !important;
+  -webkit-text-fill-color: rgb(255, 255, 255) !important;
+  color: rgb(255, 255, 255) !important;
+}
+
+.inputField::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.562);
+}
+
+.inputField:focus { 
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px 1px rgba(255,255,255,.5);
+  overflow: hidden; 
+}
+
+.star {
+  display: inline-block;
+  position: relative; 
+  left: 2%;
+  color: rgb(172, 0, 0);
+  font-size: 20px;
+}

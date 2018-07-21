@@ -1,0 +1,183 @@
+.document {
+  display: block;
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  margin: 30px auto;
+  width: 80%;
+  height: 750px;
+  padding: 30px;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 5px;
+  background-clip: padding-box;
+  background-size: cover;
+  box-shadow: 0 0 13px 5px rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  transition: all 0.7s ease-in;
+  transform-style: preserve-3d;
+}
+
+.documentActive {
+  opacity: 0.01;
+  transform: translateZ(-1000px) rotateY(360deg);
+}
+
+.documentEnter, .documentAppear {
+  opacity: 0.01;
+  transform: translateX(100%);
+}
+
+.documentEnterActive, .documentAppearActive {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 1.1s ease-in-out;
+}
+
+.documentBox {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.passport {
+  background-image: url(../../../public/images/passportBackground.jpg);
+}
+
+.driving {
+  background-image: url(../../../public/images/drivingBackground.jpg);
+}
+
+.licence {
+  background-image: url(../../../public/images/licenceBackground.jpg);
+}
+
+.passportColor {
+  color: #4c4c94;
+  border-color: #4c4c94;
+}
+
+.drivingColor {
+  color: rgb(116, 75, 75);
+  border-color: rgb(116, 75, 75);
+}
+
+.licenceColor {
+  color: rgb(77, 105, 31);
+  border-color: rgb(77, 105, 31);
+}
+
+.header {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 8px;
+  letter-spacing: 3px;
+}
+
+.imageBox {
+  display: block;
+  margin-top: 30px;
+  position: relative;
+  border: 3px dashed;
+  width: 30%;
+  height: 15.6vw;
+}
+
+.clientData {
+  display: block;
+  position: relative;
+  width: 65%;
+  height: 60px;
+  left: 35%;
+  top: -100px;
+  overflow: hidden;
+  border-bottom: 2px solid;
+}
+
+.title {
+  font-weight: 600;
+  display: block;
+  position: relative;
+  top: 40px;
+}
+
+.data {
+  display: flex;
+  position: relative;
+  left: 40%;
+  top: -17px;
+  width: 60%;
+  height: 60px;
+  font-weight: 600;
+  font-size: 18px;
+  align-items: flex-end;
+  color: black;
+}
+
+.emailBox {
+  display: block;
+  position: relative;
+  bottom: -40px;
+  left: 10%;
+  width: 85%;
+  white-space: pre-wrap;
+}
+
+.email {
+  margin-left: 7px;
+  white-space: nowrap;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.number {
+  font-size: 20px;
+  display: block;
+  position: relative;
+  bottom: -125px;
+  left: 37%;
+  width: 68%;
+  color: rgb(122, 2, 2);
+  letter-spacing: 5px;
+}
+
+.stamp {
+  display: block;
+  position: absolute;
+  top: 200px;
+  width: 33%;
+  height: 12.1vw;
+  background-size: cover;
+}
+
+.passportStamp {
+  left: -6.5%;
+  background-image: url(../../../public/images/passportStamp.png);
+}
+
+.licenceStamp {
+  left: -5.5%;
+  background-image: url(../../../public/images/licenceStamp.png);
+}
+
+.holo {
+  display: block;
+  position: absolute;
+  top: 60px;
+  left: 78%;
+  width: 19%;
+  height: 7.4vw;
+  background-size: cover;
+}
+
+.passportHolo {
+  background-image: url(../../../public/images/passportHologramm.png);
+}
+
+.licenceHolo {
+  background-image: url(../../../public/images/licenceHologramm.png);
+}

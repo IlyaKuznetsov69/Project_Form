@@ -1,0 +1,70 @@
+.box {
+  display: block;
+  position: relative;
+  left: 100%;
+  top: -115px;
+  z-index: 5;
+}
+
+.warning {
+  display: block;
+  position: relative;
+  width: 300px;
+  max-height: 34px;
+  background-color: rgb(190, 97, 97);
+  border-radius: 6px;
+  box-shadow: red 0 0 13px 3px;
+  padding: 3px;
+  padding-left: 10px;
+  color: white;
+}
+
+.arrow {
+  display: block;
+  position: relative;
+  left: -100%;
+  top: 36px;
+  border: 10px solid transparent;
+  border-right: 80px solid rgb(190, 97, 97);
+  margin: 0;
+  padding: 0;
+  transform: rotate(-30deg);
+  transform-origin: top right;
+}
+
+.close {
+  display: block;
+  position: relative;
+  left: 298px;
+  bottom: 51px;
+  background-color: rgb(190, 97, 97);
+  border-radius: 50%;
+  outline: none;
+  color: white;
+  box-shadow: red 0 0 13px 3px;
+}
+
+.close:hover {
+  background-color: rgb(179, 70, 70);
+}
+
+.boxEnter, .boxAppear {
+  opacity: 0.01;
+  transform: scale(0.01);
+  transform-origin: left bottom;
+}
+
+.boxEnterActive, .boxAppearActive {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+}
+
+.boxExit {
+  opacity: 1;
+}
+
+.boxExitActive {
+  opacity: 0.01;
+  transition: opacity 0.3s ease-in-out;
+}

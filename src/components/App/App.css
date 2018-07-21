@@ -1,0 +1,49 @@
+html, body, div, span,
+h1, h2, h3, h4, p,
+a, img, ol, ul, li, label, article, canvas, 
+footer, header, 
+menu, section {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, footer, header, 
+menu, section {
+	display: block;
+}
+
+body {
+  width: 98vw;
+  height: 46vw;
+  background-color: rgb(60, 170, 215);
+}
+
+.leftSection {
+  display: block;
+  position: relative;
+  float: left;
+  width: 49vw;
+  background-color: rgb(60, 170, 215);
+}
+
+.rightSection {
+  display: block;
+  position: relative;
+  float: right;
+  width: 49vw;
+  background-color: rgb(60, 170, 215);
+  perspective: 500px;
+}
+
+.header {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 22px;
+  text-align: center;
+  margin: 10px auto;
+  color: rgb(120, 34, 94);
+  text-shadow: #333333 1px -1px 3px;
+}
