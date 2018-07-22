@@ -8,17 +8,24 @@ class UserDocument extends Component {
     super(props);
     this.state = {
       currentDoc: this.props.selectedDocument,
-      documentActive: ''
+      documentActive: '',
+      currentPhoto: this.props.photo,
+      photoActive: ''
     }
 
     this.switchDocument = this.switchDocument.bind(this);
     this.changeCurrentDoc = this.changeCurrentDoc.bind(this);
+    this.changePhoto = this.changePhoto.bind(this);
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.selectedDocument !== prevProps.selectedDocument) {
       this.setState({
         documentActive: styles.documentActive
+      })
+    } else if (this.props.photo !== prevProps.photo) {
+      this.setState({
+        photoActive: styles.photoActive
       })
     }
   }
@@ -27,6 +34,13 @@ class UserDocument extends Component {
     this.setState({
       currentDoc: this.props.selectedDocument,
       documentActive: ''
+    })
+  }
+
+  changePhoto() {
+    this.setState({
+      currentPhoto: this.props.photo,
+      photoActive: ''
     })
   }
 
@@ -68,9 +82,11 @@ class UserDocument extends Component {
 
     const { clientData } = this.props;
     const { invalidData } = this.props.clientData;
-    const { photo } = this.props;
-    const { currentDoc } = this.state;
-    const { documentActive } = this.state;
+    const {
+      currentPhoto,
+      currentDoc,
+      documentActive,
+      photoActive } = this.state;
 
     return (
       <CSSTransition
@@ -102,7 +118,9 @@ class UserDocument extends Component {
               styles.imageBox,
               this.switchDocument(currentDoc).color].join(' ')}>
             <img
-              src={photo || this.switchDocument(currentDoc).photo}
+              className={[styles.photo, photoActive].join(' ')}
+              src={currentPhoto || this.switchDocument(currentDoc).photo}
+              onTransitionEnd={this.changePhoto}
               alt='Ваше фото'
               width='100%'
               height='100%'

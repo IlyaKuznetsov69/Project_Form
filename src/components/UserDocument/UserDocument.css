@@ -87,6 +87,15 @@
   height: 15.6vw;
 }
 
+.photo {
+  transition: all 0.3s ease-in-out;
+}
+
+.photoActive {
+  opacity: 0.01;
+  transform: scaleY(0);
+}
+
 .clientData {
   display: block;
   position: relative;
