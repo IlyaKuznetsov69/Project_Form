@@ -19,11 +19,17 @@
   margin-bottom:20px;
   padding-top: 6px;
   padding-bottom: 1px;
-  color: rgba(255, 255, 255, 0.562);
+  color: rgb(255, 255, 255);
   height: 20px;
   overflow: hidden;
 }
 
 .inputTypeFile {
   display: none;
+}
+
+@media (max-width: 800px) {
+  .fileInput {
+    width: 78%;
+  }
 }

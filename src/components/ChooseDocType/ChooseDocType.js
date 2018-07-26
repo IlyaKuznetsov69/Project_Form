@@ -18,7 +18,7 @@ const ChooseDocType = ({ selectedDocument, selectDocument }) => {
 
   return (
     <CSSTransition
-      in={true}
+      in
       classNames={{
         appear: styles.formAppear,
         appearActive: styles.formAppearActive,
@@ -26,41 +26,48 @@ const ChooseDocType = ({ selectedDocument, selectDocument }) => {
         enterActive: styles.formEnterActive,
         enterDone: styles.form
       }}
-      appear={true}
-      timeout={900}>
+      appear
+      timeout={900}
+    >
       <form
         className={styles.form}
         action='#'
-        onSubmit={handleSubmit}>
+        onSubmit={handleSubmit}
+      >
         <h4 className={styles.header}>
           Выберите документ, который хотите получить:
-      </h4>
+        </h4>
         <select
           className={styles.inputField}
           defaultValue={selectedDocument}
           onChange={handleChange}
-          required>
+          required
+        >
           <option
             className={styles.inputOption}
-            value='Passport'>
+            value='Passport'
+          >
             Паспорт государства Бубунда
-        </option>
+          </option>
           <option
             className={styles.inputOption}
-            value='Driving'>
+            value='Driving'
+          >
             Водительское удостоверение
-        </option>
+          </option>
           <option
             className={styles.inputOption}
-            value='Licence'>
+            value='Licence'
+          >
             Лицензия на отлов крокодилов
-        </option>
+          </option>
         </select>
         <button
           className={styles.button}
-          type='submit'>
+          type='submit'
+        >
           Хочу!
-      </button>
+        </button>
       </form>
     </CSSTransition>
   )

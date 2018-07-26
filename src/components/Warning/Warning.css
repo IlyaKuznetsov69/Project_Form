@@ -68,3 +68,21 @@
   opacity: 0.01;
   transition: opacity 0.3s ease-in-out;
 }
+
+@media (max-width: 800px) {
+  .box {
+    left: 30%;
+    font-size: 70%;
+  }
+  
+  .warning {
+    width: 160px;
+    height: 40px;
+  }
+
+  .close {
+    position: absolute;
+    left: 165px;
+    bottom: 32px;
+  }
+}

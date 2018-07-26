@@ -1,23 +1,6 @@
-export const addClientData = ({
-  surname,
-  name,
-  lastname,
-  birthdate,
-  motherland,
-  idNumber,
-  email,
-  invalidData }) => ({
+export const addClientData = (inputData) => ({
     type: 'ADD_CLIENTDATA',
-    payload: {
-      surname,
-      name,
-      lastname,
-      birthdate,
-      motherland,
-      idNumber,
-      email,
-      invalidData
-    }
+    payload: inputData
   });
 
 export const addPhoto = ({ name, url }) => ({
@@ -49,3 +32,21 @@ export const selectDocument = (document) => ({
     document
   }
 });
+
+export const showWarning = (name) => ({
+  type: 'SHOW_WARNING',
+  payload: {
+    name
+  }
+})
+
+export const clearWarning = (name) => ({
+  type: 'CLEAR_WARNING',
+  payload: {
+    name
+  }
+})
+
+export const clearAllWarnings = () => ({
+  type: 'CLEAR_ALL'
+})

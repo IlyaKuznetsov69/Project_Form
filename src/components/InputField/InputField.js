@@ -1,65 +1,73 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
+import WarningContainer from 'containers/WarningContainer';
 import styles from './InputField.css';
 
-import Warning from '../Warning/Warning.js';
+class InputField extends Component {
+  constructor(props) {
+    super(props);
 
-const InputField = ({
-  clientData,
-  handleChange,
-  removeWarning,
-  text,
-  name,
-  title,
-  required,
-  placeholder,
-  type }) => {
-
-  const { invalidData } = clientData;
-
-  const checkData = (invalidData) => {
-    return invalidData ? invalidData : {};
+    this.inputRef = React.createRef();
+    
+    this.checkStarNecessity = this.checkStarNecessity.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
-  const checkStarNecessity = (required) => {
-    if (required) {
+  checkStarNecessity() {
+    const { requiredfield } = this.props;
+    if (requiredfield) {
       return (
         <div className={styles.star}>*</div>
       )
     }
   }
 
-  const checkWarningNecessity = (required) => {
-    if (required) {
-      return (
-        <Warning
-          invalidData={checkData(invalidData)[name]}
-          removeWarning={removeWarning}
-          name={name}
-        />
-      )
+  handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      this.inputRef.current.parentElement.parentElement.nextElementSibling.firstElementChild.focus();
     }
   }
 
-  return (
-    <div className={styles.inputLabel}>
-      <label>
-        {text}
-        <input
-          className={styles.inputField}
-          type={type || 'text'}
-          title={title}
+  render() {
+
+    const {
+      clientData,
+      text,
+      name,
+      title,
+      handleChange,
+      placeholder,
+      type,
+      requiredfield,
+      showWarning } = this.props;
+
+    return (
+      <div className={styles.inputLabel}>
+        <label>
+          {text}
+          <input
+            className={styles.inputField}
+            type={type || 'text'}
+            title={title}
+            name={name}
+            defaultValue={clientData[name] || ''}
+            onInput={handleChange}
+            onBlur={() => showWarning(name)}
+            onKeyPress={this.handleKeyPress}
+            placeholder={placeholder || ''}
+            ref={this.inputRef}
+          />
+          {this.checkStarNecessity()}
+        </label>
+        <WarningContainer 
           name={name}
-          defaultValue={clientData[name] || ''}
-          onChange={handleChange}
-          required={required}
-          placeholder={placeholder || ''}
+          requiredfield={requiredfield}
         />
-        {checkStarNecessity(required)}
-      </label>
-      {checkWarningNecessity(required)}
-    </div>
-  )
+      </div>
+    )
+  }
 }
 
 export default InputField;
@@ -86,8 +94,13 @@ InputField.propTypes = {
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  removeWarning: PropTypes.func.isRequired,
-  required: PropTypes.bool.isRequired,
+  showWarning: PropTypes.func.isRequired,
+  requiredfield: PropTypes.bool.isRequired,
   placeholder: PropTypes.string,
   type: PropTypes.string
+};
+
+InputField.defaultProps = {
+  placeholder: undefined,
+  type: undefined
 }

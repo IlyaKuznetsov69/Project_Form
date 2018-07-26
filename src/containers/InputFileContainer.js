@@ -1,11 +1,7 @@
 import { connect } from 'react-redux';
 
-import InputFile from '../components/InputFile/InputFile.js';
-import { addPhoto } from '../actions/actions';
-
-const mapStateToProps = ({ photo }) => ({
-  photo: photo.name
-})
+import InputFile from 'InputFile/InputFile';
+import { addPhoto } from 'actions/actions';
 
 const verifyPhoto = (inputPhoto) => {
   const { name } = inputPhoto;
@@ -15,6 +11,10 @@ const verifyPhoto = (inputPhoto) => {
     return { ...inputPhoto, name: imageName}
   } return {};
 }
+
+const mapStateToProps = ({ photo }) => ({
+  photo: photo.name
+})
 
 const mapDispatchToProps = (dispatch) => ({
   addPhoto: (inputPhoto) => dispatch(addPhoto(verifyPhoto(inputPhoto)))

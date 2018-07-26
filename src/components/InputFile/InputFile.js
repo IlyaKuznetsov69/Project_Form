@@ -38,10 +38,11 @@ class InputFile extends Component {
       <div>
         <span>
           Фото, как на памятник:
-      </span>
+        </span>
         <label
           className={[styles.fileInput, styles.inputLabel].join(' ')}
-          title='Если у вас нет, у нас есть красивое'>
+          title='Если у вас нет, у нас есть красивое'
+        >
           {photo || 'Выберите фото'}
           <input
             className={styles.inputTypeFile}
@@ -61,4 +62,8 @@ export default InputFile;
 InputFile.propTypes = {
   addPhoto: PropTypes.func.isRequired,
   photo: PropTypes.string
+}
+
+InputFile.defaultProps = {
+  photo: undefined
 }

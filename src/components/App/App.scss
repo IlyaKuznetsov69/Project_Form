@@ -1,3 +1,5 @@
+$backgroundColor: rgb(60, 170, 215);
+
 html, body, div, span,
 h1, h2, h3, h4, p,
 a, img, ol, ul, li, label, article, canvas, 
@@ -19,7 +21,7 @@ menu, section {
 body {
   width: 98vw;
   height: 46vw;
-  background-color: rgb(60, 170, 215);
+  background-color: $backgroundColor;
 }
 
 .leftSection {
@@ -27,7 +29,8 @@ body {
   position: relative;
   float: left;
   width: 49vw;
-  background-color: rgb(60, 170, 215);
+  background-color: $backgroundColor;
+  z-index: 2;
 }
 
 .rightSection {
@@ -35,8 +38,9 @@ body {
   position: relative;
   float: right;
   width: 49vw;
-  background-color: rgb(60, 170, 215);
+  background-color: $backgroundColor;
   perspective: 500px;
+  z-index: 1;
 }
 
 .header {
@@ -46,4 +50,22 @@ body {
   margin: 10px auto;
   color: rgb(120, 34, 94);
   text-shadow: #333333 1px -1px 3px;
+}
+
+@media (max-width: 800px) {
+
+  body {
+    height: auto;
+  }
+
+  .leftSection {
+    float: none;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .rightSection {
+    float: none;
+    width: 100%;
+  }
 }

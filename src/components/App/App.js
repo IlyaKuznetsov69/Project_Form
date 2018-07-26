@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ChooseDocType from '../ChooseDocType/ChooseDocType';
-import ClientData from '../ClientData/ClientData';
-import UserDocument from '../UserDocument/UserDocument.js';
-import styles from './App.css';
+import ChooseDocType from 'ChooseDocType/ChooseDocType';
+import ClientData from 'ClientData/ClientData';
+import UserDocument from 'UserDocument/UserDocument';
+import styles from 'App/App.scss';
 
 const App = ({
   clientData,
@@ -14,7 +14,8 @@ const App = ({
   removeClientData,
   selectDocument,
   removePhoto,
-  removeWarning }) => {
+  showWarning,
+  clearAllWarnings }) => {
 
   return (
     <div>
@@ -31,7 +32,8 @@ const App = ({
           removeClientData={removeClientData}
           clientData={clientData}
           removePhoto={removePhoto}
-          removeWarning={removeWarning}
+          showWarning={showWarning}
+          clearAllWarnings={clearAllWarnings}
         />
       </section>
       <section className={styles.rightSection}>
@@ -74,5 +76,10 @@ App.propTypes = {
   removeClientData: PropTypes.func.isRequired,
   selectDocument: PropTypes.func.isRequired,
   removePhoto: PropTypes.func.isRequired,
-  removeWarning: PropTypes.func.isRequired
-}
+  showWarning: PropTypes.func.isRequired,
+  clearAllWarnings: PropTypes.func.isRequired
+};
+
+App.defaultProps = {
+  photo: undefined,
+};

@@ -28,7 +28,7 @@
 }
 
 .inputField::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.562);
+  color: rgb(255, 255, 255);
 }
 
 .inputField:focus { 
@@ -43,4 +43,10 @@
   left: 2%;
   color: rgb(172, 0, 0);
   font-size: 20px;
+}
+
+@media (max-width: 800px) {
+  .inputField {
+    width: 78%;
+  }
 }

@@ -3,20 +3,33 @@ import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 import styles from './Warning.css';
 
-const Warning = ({ invalidData, removeWarning, name }) => {
+const Warning = ({
+  removeWarning,
+  clearWarning,
+  invalidData,
+  warnings,
+  name,
+  requiredfield }) => {
 
-  const show = invalidData ? true : false;
+  const show = (requiredfield && warnings[name] && invalidData && invalidData[name]) ? true : false;
 
-  const content = (invalidData) => {
-    if (invalidData) {
+  const clear = () => {
+    removeWarning(name);
+    clearWarning(name);
+  }
+
+  const content = () => {
+    if (show) {
       return (
         <div className={styles.box}>
-          <div className={styles.arrow}></div>
+          <div className={styles.arrow} />
           <div className={styles.warning}>
-            Achtung!!! {invalidData}
+            Achtung!!! {invalidData[name]}
             <button
+              type="button"
               className={styles.close}
-              onClick={() => removeWarning(name)}>
+              onClick={() => clear()}
+            >
               X
             </button>
           </div>
@@ -39,8 +52,9 @@ const Warning = ({ invalidData, removeWarning, name }) => {
       }}
       timeout={300}
       key={name}
-      unmountOnExit>
-      {content(invalidData)}
+      unmountOnExit
+    >
+      {content()}
     </CSSTransition>
   )
 }
@@ -48,7 +62,29 @@ const Warning = ({ invalidData, removeWarning, name }) => {
 export default Warning;
 
 Warning.propTypes = {
-  invalidData: PropTypes.string,
+  requiredfield: PropTypes.bool.isRequired,
   removeWarning: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired
+  clearWarning: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  warnings: PropTypes.shape({
+    surname: PropTypes.bool.isRequired,
+    name: PropTypes.bool.isRequired,
+    lastname: PropTypes.bool.isRequired,
+    birthdate: PropTypes.bool.isRequired,
+    motherland: PropTypes.bool.isRequired,
+    idNumber: PropTypes.bool.isRequired,
+    email: PropTypes.bool.isRequired
+  }).isRequired,
+  invalidData: PropTypes.shape({
+    surname: PropTypes.string,
+    name: PropTypes.string,
+    birthdate: PropTypes.string,
+    motherland: PropTypes.string,
+    idNumber: PropTypes.string,
+    email: PropTypes.string
+  })
+}
+
+Warning.defaultProps = {
+  invalidData: undefined
 }

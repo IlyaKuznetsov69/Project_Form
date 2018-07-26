@@ -44,15 +44,15 @@
 }
 
 .passport {
-  background-image: url(../../../public/images/passportBackground.jpg);
+  background-image: url(images/passportBackground.jpg);
 }
 
 .driving {
-  background-image: url(../../../public/images/drivingBackground.jpg);
+  background-image: url(images/drivingBackground.jpg);
 }
 
 .licence {
-  background-image: url(../../../public/images/licenceBackground.jpg);
+  background-image: url(images/licenceBackground.jpg);
 }
 
 .passportColor {
@@ -112,6 +112,7 @@
   display: block;
   position: relative;
   top: 40px;
+  font-size: 1.2vw;
 }
 
 .data {
@@ -122,7 +123,7 @@
   width: 60%;
   height: 60px;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.5vw;
   align-items: flex-end;
   color: black;
 }
@@ -165,12 +166,12 @@
 
 .passportStamp {
   left: -6.5%;
-  background-image: url(../../../public/images/passportStamp.png);
+  background-image: url(images/passportStamp.png);
 }
 
 .licenceStamp {
   left: -5.5%;
-  background-image: url(../../../public/images/licenceStamp.png);
+  background-image: url(images/licenceStamp.png);
 }
 
 .holo {
@@ -184,9 +185,55 @@
 }
 
 .passportHolo {
-  background-image: url(../../../public/images/passportHologramm.png);
+  background-image: url(images/passportHologramm.png);
 }
 
 .licenceHolo {
-  background-image: url(../../../public/images/licenceHologramm.png);
+  background-image: url(images/licenceHologramm.png);
+}
+
+@media (max-width: 800px) {
+  .document {
+    height: auto;
+  }
+
+  .imageBox {
+    width: 25%;
+    height: 27vw;
+  }
+
+  .stamp {
+    top: 23%;
+    width: 28%;
+    height: 21.1vw;
+  }
+
+  .holo {
+    height: 14.8vw;
+  }
+
+  .clientData {
+    top: -75px;
+  }
+
+  .emailBox {
+    bottom: 30px;
+    margin-top: 100px;
+    left: 5%;
+    width: 90%;
+  }
+
+  .number {
+    bottom: 20px;
+    margin-top: 100px;
+    left: 33%;
+  }
+
+  .title {
+    font-size: 2.2vw;
+  }
+
+  .data {
+    font-size: 2.8vw;
+  }
 }

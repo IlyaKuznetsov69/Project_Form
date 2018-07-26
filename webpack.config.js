@@ -1,5 +1,5 @@
 const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
@@ -14,6 +14,23 @@ module.exports = {
     publicPath: 'http://localhost:3000/public/',
     openPage: 'public',
     port: 3000
+  },
+  resolve: {
+    alias: {
+      actions: path.resolve(__dirname, 'src/actions/'),
+      components: path.resolve(__dirname, 'src/components/'),
+      constants: path.resolve(__dirname, 'src/constants/'),
+      containers: path.resolve(__dirname, 'src/containers/'),
+      images: path.resolve(__dirname, 'src/images/'),
+      reducers: path.resolve(__dirname, 'src/reducers/'),
+      App: path.resolve(__dirname, 'src/components/App'),
+      ChooseDocType: path.resolve(__dirname, 'src/components/ChooseDocType'),
+      ClientData: path.resolve(__dirname, 'src/components/ClientData'),
+      InputField: path.resolve(__dirname, 'src/components/InputField'),
+      InputFile: path.resolve(__dirname, 'src/components/InputFile'),
+      UserDocument: path.resolve(__dirname, 'src/components/UserDocument'),
+      Warning: path.resolve(__dirname, 'src/components/Warning')
+    }
   },
   module: {
     rules: [
@@ -34,10 +51,10 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
+        test: /\.(css|scss)$/,
         use: [
-          // 'style-loader',
-          MiniCssExtractPlugin.loader,
+          'style-loader',
+          // MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -46,6 +63,7 @@ module.exports = {
               localIdentName: "[name]__[local]___[hash:base64:5]"
             }
           },
+          'sass-loader',
           {
             loader: 'postcss-loader',
             options: {
@@ -78,21 +96,21 @@ module.exports = {
       }
     ]
   },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        styles: {
-          name: 'styles',
-          test: /\.css$/,
-          chunks: 'all',
-          enforce: true
-        }
-      }
-    }
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: "[name].css",
-    })
-  ]
+  // optimization: {
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       styles: {
+  //         name: 'styles',
+  //         test: /\.css$/,
+  //         chunks: 'all',
+  //         enforce: true
+  //       }
+  //     }
+  //   }
+  // },
+  // plugins: [
+  //   new MiniCssExtractPlugin({
+  //     filename: "[name].css",
+  //   })
+  // ]
 }

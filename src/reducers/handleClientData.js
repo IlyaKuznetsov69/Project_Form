@@ -1,26 +1,10 @@
 const handleClientData = (state = {}, { type, payload }) => {
   switch (type) {
     case 'ADD_CLIENTDATA': {
-      const {
-        surname,
-        name,
-        lastname,
-        birthdate,
-        motherland,
-        idNumber,
-        email,
-        invalidData } = payload;
-      return Object.assign({}, state,
-        {
-          surname: surname,
-          name: name,
-          lastname: lastname,
-          birthdate: birthdate,
-          motherland: motherland,
-          idNumber: idNumber,
-          email: email,
-          invalidData: invalidData
-        })
+      const inputInvalidData = { ...payload.invalidData };
+      const { invalidData } = state;
+      const newInvalidData = Object.assign({}, invalidData, inputInvalidData);
+      return Object.assign({}, state, payload, {invalidData: newInvalidData});
     }
     case 'REMOVE_CLIENTDATA':
       return {};
