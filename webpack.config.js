@@ -1,5 +1,5 @@
 const path = require('path');
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
@@ -53,8 +53,8 @@ module.exports = {
       {
         test: /\.(css|scss)$/,
         use: [
-          'style-loader',
-          // MiniCssExtractPlugin.loader,
+          // 'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -96,21 +96,21 @@ module.exports = {
       }
     ]
   },
-  // optimization: {
-  //   splitChunks: {
-  //     cacheGroups: {
-  //       styles: {
-  //         name: 'styles',
-  //         test: /\.css$/,
-  //         chunks: 'all',
-  //         enforce: true
-  //       }
-  //     }
-  //   }
-  // },
-  // plugins: [
-  //   new MiniCssExtractPlugin({
-  //     filename: "[name].css",
-  //   })
-  // ]
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true
+        }
+      }
+    }
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    })
+  ]
 }
