@@ -89,7 +89,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              // name: '[path][name]-[hash:8].[ext]'
+              name: '[path][name]-[hash:8].[ext]'
             },
           },
         ]
@@ -100,7 +100,7 @@ module.exports = {
     splitChunks: {
       cacheGroups: {
         styles: {
-          name: 'styles',
+          name: 'main',
           test: /\.css$/,
           chunks: 'all',
           enforce: true
